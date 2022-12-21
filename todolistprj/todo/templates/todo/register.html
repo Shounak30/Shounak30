@@ -1,0 +1,34 @@
+{% extends 'todo/main.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <h1>Register</h1>
+</div>
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label><b>{{ form.username.label }}</b></label>
+        {{ form.username }}
+        <small><p><i>*Required. Letters, digits and @/./+/-/_ only.</i></p></small>
+
+        <label><b>{{ form.password1.label }}</b></label>
+        {{ form.password1 }}
+        
+
+        <small><p><i># Password can’t be too similar to your other personal information, i.e.:Username.<br>
+                # Password must contain at least 8 characters.<br>
+                # Password can’t be a commonly used password. e.g."12345"/"abcde" etc.<br>
+                # Password can’t be entirely numeric.</i><br></p></small>
+
+
+        <label><b>{{ form.password2.label }}</b></label>
+        {{ form.password2 }}
+        <small><p><i># Enter the same password as before, for verification.</i></p></small>
+        <br>
+        <b><input class="button" type="submit" value="Register Now"></b>
+    
+        <small><p>Have an account already? <a href="{% url 'login' %}"><b>Login Now</b></a></p></small>
+    </form>
+</div>
+{% endblock content %}
